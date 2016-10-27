@@ -1,4 +1,5 @@
 #include <curl.hpp>
+#include <curl/curl.h>
 
 int get_response_code()
 {
