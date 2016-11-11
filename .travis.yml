@@ -22,6 +22,7 @@ env:
 script:
   - mkdir build
   - cd build
-  - ../tools/build_requirements.unix.sh
+  - sudo apt-get update
+  - sudo apt-get install libssl-dev libcurl4-openssl-dev
   - cmake .. && make
   - ./Examples
