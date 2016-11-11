@@ -1,11 +1,9 @@
 language: generic
-env: 
-  global: TEST=test
 matrix:
   include:
     - os: linux
       sudo: required
-      env: COMPILER_NAME=gcc CXX=g++-5 CC=gcc-5
+      env: COMPILER_NAME=gcc CXX=g++-5 CC=gcc-5 TEST=test
       addons:
         apt:
           packages:
@@ -16,7 +14,7 @@ matrix:
             - ubuntu-toolchain-r-test
     - os: linux
       sudo: required
-      env: COMPILER_NAME=gcc CXX=g++-4.9 CC=gcc-4.9
+      env: COMPILER_NAME=gcc CXX=g++-4.9 CC=gcc-4.9 TEST=test
       addons:
         apt:
           packages:
@@ -27,7 +25,7 @@ matrix:
             - ubuntu-toolchain-r-test
     - os: osx
       compiler: clang-3.8
-      env: COMPILER=clang++ -std=c++11
+      env: COMPILER=clang++ -std=c++11 TEST=test
       
 script:
   - mkdir build
