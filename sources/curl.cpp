@@ -1,7 +1,7 @@
 #include <curl.hpp>
 #include <curl/curl.h>
 
-int get_response_code()
+long get_response_code()
 {
     CURL *curl = curl_easy_init();
     
@@ -13,6 +13,7 @@ int get_response_code()
         {
             long response_code;
             curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code);
+            curl_easy_cleanup(curl);
             return response_code;
         }
     }
