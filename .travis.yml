@@ -1,6 +1,7 @@
 language: generic
+env: 
+  global: TEST=test
 matrix:
-  env: TEST=test
   include:
     - os: linux
       sudo: required
