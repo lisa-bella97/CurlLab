@@ -1,4 +1,13 @@
 language: generic
+addons:
+    apt:
+        packages:
+            - ccache
+            - clang-3.6
+            - gcc-5
+        sources:
+            - llvm-toolchain-trusty-3.6
+            - ubuntu-toolchain-r-test
 matrix:
   include:
     #- os: linux
@@ -14,7 +23,7 @@ matrix:
             #- ubuntu-toolchain-r-test
     - os: osx
       compiler: clang-3.8
-      env: COMPILER=clang++ -std=c++11 OPENSSL_ROOT_DIR="/usr/local/ssl"
+      env: COMPILER="clang++-3.8" -std=c++11 OPENSSL_ROOT_DIR="/usr/local/opt/openssl"
 env:
   global: 
     secure: "AuukO1MXvOBLlgjOpacHMzuCGCzkNMGRPLVTDGoBsRzXmC2ApE4RMvGRa1NNC9qWQl4jh5xq1IT78/GlLg/4CdYTYapHkcRtXWGMWEkzc6QKaE/HJdfgmHwKnvVDTeD6KAUwnWFmp+yoAVlUlXYs0IeEm811JID4NhSshSd8eq8iTXd+vvGEP7m7JUM8CJjYBGDUrsuvhUGF8fTS2IpXfBvM9f/lpEIJrC13P4YudGfftXdJlU1J8zBeuPRIxJkPRmKDkpeMyrbj0vk+cMrhw+1kKz5lOrF6KcNGhcYF1l53uRxRkHwFgGFSW3zw7uIUeOFWi7DPnN+SXrhrD1VHAsHZ2Vn8+0Gfa2B8XMzeEnAFSV/2TpEcjQ86hPe/W55UfTBlocoRVsmu9GyJlLu2YnGDWD6vtrjfF6joAgeT5xjp1hea6S1iKzmMVCfQpTl9Vxt3/ZZR2O7yOyKwf0By7EpUHJYmlVb35J2Y4D3uNQRVi3NTMaq7r/mcKnM2vjtFvMYoduK4fARYJXGDrEZhlaSNumX1B0N2QvKIUAHS6X0ASxF0surIVouzqx/AwZpZNK0GEZy8o+6RjA44Q/GZ1ci8CL1ss0HRndjI6zBUHsPhX6fC8AIpATvERwlbYsPrY/LUi7a2GEsb4EsZxzXSzuanyfc1AKNDC5o4vLJG6X8="
@@ -22,7 +31,6 @@ env:
 script:
   - mkdir build
   - cd build
-  - sudo apt-get update
-  - sudo apt-get install libssl-dev libcurl4-openssl-dev
+  - brew install openssl curl
   - cmake .. && make
   - ./Examples
