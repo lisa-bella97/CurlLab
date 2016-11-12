@@ -31,7 +31,7 @@ env:
 script:
   - mkdir build
   - cd build
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-      brew install openssl curl;
+  #- if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+      #brew install openssl curl;
   - cmake .. && make
   - ./Examples
