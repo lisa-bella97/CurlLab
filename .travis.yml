@@ -7,7 +7,7 @@ language: generic
             #- gcc-5
         #sources:
             #- llvm-toolchain-trusty-3.6
-            -# ubuntu-toolchain-r-test
+            #- ubuntu-toolchain-r-test
 matrix:
   include:
     #- os: linux
