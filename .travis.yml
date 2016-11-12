@@ -1,13 +1,13 @@
 language: generic
-addons:
-    apt:
-        packages:
-            - ccache
-            - clang-3.6
-            - gcc-5
-        sources:
-            - llvm-toolchain-trusty-3.6
-            - ubuntu-toolchain-r-test
+#addons:
+    #apt:
+        #packages:
+            #- ccache
+            #- clang-3.6
+            #- gcc-5
+        #sources:
+            #- llvm-toolchain-trusty-3.6
+            -# ubuntu-toolchain-r-test
 matrix:
   include:
     #- os: linux
